@@ -1,0 +1,69 @@
+---
+title: "My First Blog"
+date: "2024-04-30"
+author: "Arghya Das"
+---
+
+import CopyableCode from "../../components/CopyableCode.astro";
+
+# How we added MagicUI to Astro?
+
+I have just created this blog to see how performant Astro.js is and how easily we can integrate MagicUI here. Let me walk you through the setup process step by step.
+
+## 1. Create a New Astro Project
+
+First, create a fresh Astro project using the following command:
+
+<CopyableCode code="npm create astro@latest" language="bash" />
+
+During the setup, you'll be prompted with several configuration questions. Here's what I recommend:
+
+- Choose a template
+- Enable TypeScript (with strict mode)
+- Install dependencies
+- Initialize git repository (optional)
+
+## 2. Add React Support
+
+Since MagicUI works with React, we need to add React support to our Astro project:
+
+<CopyableCode code="npx astro add react" language="bash" />
+
+## 3. Add Tailwind CSS
+
+MagicUI requires Tailwind CSS. Install it using:
+
+<CopyableCode code="npx astro add tailwind" language="bash" />
+
+## 4. Configure the Project
+
+Create a `styles/globals.css` file in your `src` folder with:
+
+<CopyableCode
+  code="@tailwind base;
+@tailwind components;
+@tailwind utilities;"
+  language="css"
+/>
+
+Then, update your `astro.config.mjs` to prevent duplicate Tailwind base styles:
+
+<CopyableCode
+  code={`import { defineConfig } from 'astro/config';
+import tailwind from '@astrojs/tailwind';
+
+export default defineConfig({
+  integrations: [
+    tailwind(),
+  ],
+});`}
+  language="javascript"
+/>
+
+## 5. Install MagicUI Components
+
+Now you can start adding MagicUI components to your project. For example, to add the button component:
+
+<CopyableCode code="npx shadcn@latest add button" language="bash" />
+
+That's it! You can now use MagicUI components in your Astro project. The setup process was surprisingly straightforward, and the performance is excellent.

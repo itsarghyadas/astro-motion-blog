@@ -1,0 +1,63 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { Content } from "./_story.mdx";
+---
+
+<Layout title="Welcome to Astro.">
+  <main class="max-w-3xl mx-auto p-5 md:p-10 text-white flex flex-col gap-5">
+    <a href="/" class="flex items-center gap-2 text-white hover:text-gray-300 transition-colors">
+      <span>← Back</span>
+    </a>
+    <Content />
+  </main>
+  <style is:inline>
+  
+    h1 {
+      font-weight: 800;
+      font-size: 2rem;
+      color: orange;
+    }
+    h2 {
+      font-weight: 800;
+      font-size: 1.3rem;
+      text-decoration: underline;
+      text-underline-offset: 0.5rem;
+      text-decoration-color: orange;
+      text-decoration-thickness: 0.04rem;
+    }
+    p {
+      font-size: 1.1rem;
+      width: 100%;
+      font-weight: 600;
+      line-height: 1.85rem;
+    }
+    a {
+      color: #146df3;
+      text-decoration: underline;
+      text-underline-offset: 0.25rem;
+    }
+    ul {
+      list-style-type: disc;
+      list-style-position: inside;
+    }
+    ol {
+      list-style-type: decimal;
+      list-style-position: inside;
+    }
+    li {
+      margin-bottom: 0.5rem;
+      font-weight: 480;
+      font-size: 1rem;
+      color: #ffffff90; 
+      font-family: 'Courier New', Courier, monospace;
+    }
+    p code {
+      font-family: 'Courier New', Courier, monospace;
+      background-color: #111111;
+      padding: 0.25rem 0.5rem;
+      border-radius: 0.5rem;
+      font-size: 0.9rem;
+      border: 1px solid #ffffff20;
+    }
+  </style>
+</Layout>

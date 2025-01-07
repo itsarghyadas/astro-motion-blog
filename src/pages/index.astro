@@ -1,0 +1,24 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { AnimatedBeamDemo } from "../components/unidirectional-beam";
+---
+
+<Layout title="Welcome to Astro.">
+  <main class="px-5 md:px-10">
+    <div class="flex h-screen flex-col gap-y-5 items-center justify-center max-w-lg mx-auto px-4">
+      <h2
+        class="text-4xl font-bold text-neutral-900 dark:text-neutral-100 max-w-2xl text-center text-balance"
+      >
+        Astro + Motion + Mdx
+      </h2>
+
+      <AnimatedBeamDemo client:load />
+      <a
+      href="/blog"
+      class="w-full border border-dashed border-orange-500/50 text-white px-4 py-2 rounded-md font-bold"
+    >
+      Check out How we built this?
+    </a>
+    </div>
+  </main>
+</Layout>

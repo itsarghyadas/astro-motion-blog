@@ -1,0 +1,53 @@
+---
+import { Code } from 'astro:components';
+import type { BundledLanguage } from 'shiki'
+
+interface Props {
+  code: string;
+  language?: BundledLanguage;
+}
+
+const { code, language = "plaintext" } = Astro.props;
+---
+
+<div class="code-block-wrapper relative group">
+  <div class="code-content w-full overflow-x-auto">
+    <Code code={code} lang={language as any} theme="github-dark" />
+  </div>
+  <button
+    class="copy-button absolute right-2 top-2 text-xs bg-white/10 hover:bg-white/20 
+           px-2 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity"
+    >Copy</button
+  >
+</div>
+
+<script>
+  document.querySelectorAll(".copy-button").forEach((button) => {
+    button.addEventListener("click", function (this: HTMLButtonElement) {
+      const codeBlock = this.closest('.code-block-wrapper')?.querySelector('code');
+      const code = codeBlock?.textContent || "";
+      navigator.clipboard.writeText(code).then(() => {
+        this.textContent = "Copied!";
+        setTimeout(() => {
+          this.textContent = "Copy";
+        }, 2000);
+      });
+    });
+  });
+</script>
+
+<style>
+
+
+  .code-content :global(pre) {
+    padding: 1rem;
+    border-radius: 8px;
+    overflow-x: auto;
+  }
+
+  .code-content :global(code > span) {
+    display: inline-block;
+    width: 100%;
+  }
+
+</style>
